@@ -21,11 +21,10 @@ spec:
         ports:
         - containerPort: 8080
           name: http
-        env:
-        - name: NITTER_HOST
-          value: "nitter.midagedev.com"
-        - name: NITTER_THEME
-          value: "Twitter"
+        volumeMounts:
+        - name: config
+          mountPath: /src/nitter.conf
+          subPath: nitter.conf
         resources:
           requests:
             memory: "128Mi"
@@ -33,3 +32,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
+      volumes:
+      - name: config
+        configMap:
+          name: nitter-config
