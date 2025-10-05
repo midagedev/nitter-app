@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nitter
+  namespace: default
+  labels:
+    app: nitter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nitter
+  template:
+    metadata:
+      labels:
+        app: nitter
+    spec:
+      containers:
+      - name: nitter
+        image: zedeus/nitter:latest
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: NITTER_HOST
+          value: "nitter.midagedev.com"
+        - name: NITTER_THEME
+          value: "Twitter"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
