@@ -25,6 +25,9 @@ spec:
         - name: config
           mountPath: /src/nitter.conf
           subPath: nitter.conf
+        - name: config
+          mountPath: /src/sessions.jsonl
+          subPath: sessions.jsonl
         resources:
           requests:
             memory: "128Mi"

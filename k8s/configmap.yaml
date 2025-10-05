@@ -4,6 +4,7 @@ metadata:
   name: nitter-config
   namespace: default
 data:
+  sessions.jsonl: |
   nitter.conf: |
     [Server]
     address = "0.0.0.0"
