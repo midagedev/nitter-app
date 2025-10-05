@@ -18,11 +18,15 @@ data:
     [Cache]
     listMinutes = 240
     rssMinutes = 10
-    redisHost = ""
+    redisHost = "localhost"
     redisPort = 6379
     redisPassword = ""
     redisConnections = 20
     redisMaxConnections = 30
+
+    [Database]
+    driver = "sqlite"
+    path = "/tmp/nitter.db"
 
     [Config]
     hmacKey = "secretkey"

@@ -35,6 +35,18 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+          name: redis
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
       volumes:
       - name: config
         configMap:
